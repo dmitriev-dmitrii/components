@@ -1,0 +1,39 @@
+html {
+  scroll-behavior: smooth;
+  font-family: "Montserrat";
+}
+
+.body {
+  width: 100%;
+  margin: 0;
+
+}
+
+
+.go-top-btn {
+  width: 2em;
+  height: 2em;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  z-index: 7;
+  background-image: url(../img/arrow_up.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  background-color: rgba(134, 134, 134, 0.466);
+  border: 1px solid transparent;
+  position: fixed;
+  bottom: 4vw;
+  right: 2vw;
+  cursor: pointer;
+  -webkit-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+  outline: none;
+}
+.go-top-btn:hover, .go-top-btn:focus {
+  background-color: rgba(134, 134, 134, 0.815);
+  border: 1px solid white;
+  -webkit-box-shadow: rgba(134, 134, 134, 0.815) 0 0 5px 3px;
+          box-shadow: rgba(134, 134, 134, 0.815) 0 0 5px 3px;
+}
