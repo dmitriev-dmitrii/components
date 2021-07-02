@@ -1,0 +1,76 @@
+
+
+.feedback{
+	margin-top: 1rem 0;
+	@include fontSize(1.6, 2);
+}
+.feedback__form
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+display: block;
+text-align: center;
+}
+
+.feedback legend
+{
+text-align: center;
+margin: 2rem 0;
+}
+
+.feedback__input {
+margin-bottom: 1rem;
+display: block;
+
+width: 100%;
+flex: 100%;
+
+	padding: 1rem 1.5rem;
+	border: 1px solid $mainAccentColor;
+	border-radius: $borderRadius;
+	color: black;
+	font-weight: bold;
+	outline: none;
+	transition: all  0.2s ease;
+
+&:focus
+{
+border: 1px solid $minorAccentColor;
+box-shadow: 0 0 .6rem .2rem lighten($mainAccentColor, 20);
+background: lighten($mainAccentColor, 43);
+}
+
+}
+
+
+
+/* плавное изменение прозрачности  placeholder-а при фокусе */
+
+.feedback__input::-webkit-input-placeholder       {opacity: 1; transition: all 0.1s 0.2s linear; font-weight: normal;}
+.feedback__input::-moz-placeholder                {opacity: 1; transition: all 0.1s 0.2s linear; font-weight: normal;}
+.feedback__input:-moz-placeholder                 {opacity: 1; transition: all 0.1s 0.2s linear; font-weight: normal;}
+.feedback__input:-ms-input-placeholder            {opacity: 1; transition: all 0.1s 0.2s linear; font-weight: normal;}
+
+
+.feedback__input:focus::-webkit-input-placeholder {opacity: 0;}
+.feedback__input:focus::-moz-placeholder          {opacity: 0;}
+.feedback__input:focus:-moz-placeholder           {opacity: 0;}
+.feedback__input:focus:-ms-input-placeholder      {opacity: 0;}
+
+
+
+
+.feedback textarea{
+	resize: vertical;
+
+}
+.feedback .btn{
+// max-width: 80%;
+
+
+}
+
+#captcha_input{
+
+}

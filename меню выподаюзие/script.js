@@ -40,7 +40,9 @@ overlay.addEventListener('click', () => {
 menu.addEventListener('click', (e) => {
 	if (e.target.classList.contains('nav__link--drop')) {
 		e.preventDefault();
+
 		e.target.closest('.nav__list').classList.add('transformation');
+
 		e.target.closest('.nav__item').querySelector('.nav__list--dropdown').classList.add('transformation');
 		scrollTop();
 	}

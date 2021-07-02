@@ -1,0 +1,50 @@
+
+.btn{
+	width: 181px;
+    height: 40px;
+    color: $TxtOnAccentColor;
+    border: none;
+    border-radius: 5px;
+    background-color: $mainAccentColor;
+    text-decoration: none;
+    // font-size: 11px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 40px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 4px;
+}
+.btn:hover{
+	background-color: $minorTxtColor;
+}
+.btn-red{
+	width: 252px;
+	height: 59px;
+    color: $TxtOnAccentColor;
+    border: none;
+    border-radius: 5px;
+    background-color: $minorTxtColor;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 59px;
+}
+.btn-red img{
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.btn-red:hover{
+	background-color: $mainAccentColor;
+}
+.btn-wht{
+	font-weight: 700;
+	// font-size: 16px;
+	background-color: $mainAccentColor;
+	color: $mainTxtColor;
+}
+.btn-wht:hover{
+	color: $TxtOnAccentColor;
+}	
