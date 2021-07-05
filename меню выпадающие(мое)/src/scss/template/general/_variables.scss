@@ -1,0 +1,50 @@
+// @mixin font($url, $family, $weight, $style) {
+// 	@font-face {
+// 		font-display: swap;
+// 		font-family: $family;
+// 		font-style: #{$style};
+// 		font-weight: $weight;
+// 		src: url("../fonts/#{$url}.woff2") format("woff2"), url("../fonts/#{$url}.woff") format("woff");
+// 	}
+// }
+
+// maxWidth-максимальная гирина контейнера по макету
+
+
+@mixin fontSize($minFontSize, $maxFontSize) {
+
+	$minWidth: 320;
+
+	$minWidth: $minWidth / 10;
+	$maxWidth: $maxWidth / 10;
+
+	$slope: ($maxFontSize - $minFontSize) / ($maxWidth - $minWidth);
+
+	$yAxisIntersection: -$minWidth * $slope + $minFontSize;
+
+	font-size: #{"min(max(#{$minFontSize}rem,#{$yAxisIntersection}rem + #{$slope * 100}vw),#{$maxFontSize}rem)"};
+
+}
+
+
+$maxWidth: 1400;
+// так же используется в мексине для Font-Size
+
+$bodyColor: #FFFFFF;
+
+$mainTxtColor: #666666;
+$minorTxtColor: #297f94;
+
+$mainAccentColor: #55afbf;
+$TxtOnAccentColor: #FFFFFF;
+
+$minorAccentColor: #2f9a90;
+
+// $titleTxtColor: #222;
+
+$errorColor:red;
+
+$borderRadius: 5px;
+
+
+
