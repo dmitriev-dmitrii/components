@@ -1,14 +1,27 @@
-.header {
-	box-shadow: 0 0 7px 3px lighten($mainTxtColor, 30);
-	@include fontSize(1.6, 2);
+$menuBgColor:dodgerblue;
+$menuShadowColor:dodgerblue;
 
+$menuTxtColor:white;
+$menuTxtColor-Hover:white;
+
+$menuBorderColor:black;
+
+$menuBorderRadius:5px;
+
+$menuBurgerColor:yellow;
+$menuBurgerColor-Active:red;
+
+.header {
+	box-shadow: 0 0 7px 3px $menuShadowColor;
+	@include fontSize(1.6, 2);
+font-size: 16px;
 	width: 100%;
 position: fixed;
 left: 0;
 top: 0;
 z-index: 10;
 
-background-color:darken( $bodyColor, 3);
+background-color:$menuBgColor;
 
 }
 
@@ -22,12 +35,11 @@ background-color:darken( $bodyColor, 3);
 
 .header__logo{
 
-
 }
 
 
 .nav {
-
+    background-color: $menuBgColor;
 	position: absolute;
 	left: 0;
 	top: 100%;
@@ -36,7 +48,8 @@ background-color:darken( $bodyColor, 3);
 	width: 100%;
 	height:90vh;
 
-	background-color: $bodyColor;
+	transition: all .2s ease;
+
 	transform: translateX(-200vw);
 
 	overflow-x: hidden;
@@ -70,13 +83,13 @@ background-color:darken( $bodyColor, 3);
 
 	&::before {
 		top: 0;
-		border-top: $mainAccentColor 0.2rem solid;
-		border-bottom: $mainAccentColor 0.1rem solid;
+		border-top: $menuBurgerColor 0.2rem solid;
+		border-bottom: $menuBurgerColor 0.1rem solid;
 	}
 	&::after {
 		bottom: 0;
-		border-top: $mainAccentColor 0.1rem solid;
-		border-bottom: $mainAccentColor 0.2rem solid;
+		border-top: $menuBurgerColor 0.1rem solid;
+		border-bottom: $menuBurgerColor 0.2rem solid;
 	}
 }
 
@@ -88,7 +101,7 @@ background-color:darken( $bodyColor, 3);
 		top: 50%;
 		border-top: none;
 		border-bottom: none;
-		background:lighten( $errorColor, 20);
+		background:lighten( $menuBurgerColor-Active, 20);
 	}
 	&::before {
 		transform: rotate(-135deg);
@@ -123,7 +136,7 @@ background-color:darken( $bodyColor, 3);
 
 	transition: all 0.2s ease;
 	height: 100%;
-	border-top: 0.1rem solid $minorAccentColor;
+	border-top: 0.1rem solid $menuBorderColor;
 
 }
 
@@ -157,18 +170,19 @@ background-color:darken( $bodyColor, 3);
 	justify-content: space-between;
 	align-items: center;
 
+	position: relative;
 	&::after {
 
 		content: "";
-		background-image: url("./img/svg/arrow.svg");
+		background-image: url("img/svg/arrow.svg");
 		background-position: center;
 		background-size: contain;
 		height: 1.5rem;
 		width: 1.5rem;
 		margin: 0 1.5rem;
-		opacity: .5;
-		
+		// opacity: .5;
 	}
+
 }
 
 .dropdown-open {
@@ -180,6 +194,7 @@ background-color:darken( $bodyColor, 3);
 .dropdown-back {
 	justify-content: center;
 	flex-direction: row-reverse;
+	font-weight: bold;
 	&::after {
 		transform: rotate(90deg);
 	}
@@ -194,54 +209,36 @@ display: flex;
 align-items: flex-end;
 justify-content: center;
 
-margin-bottom: 1rem;
 }
 
 .nav__item--section-part
 
 {
-
-padding: .5rem;
 flex: 100%;
 text-align: center;
-
 }
 
 a.nav__item--section-part ,
 .nav__item--section-part>a
 
 {
-	transition: all .2s ease;
+	// transition: all .2s ease;
 
 	&:hover,	&:focus
 	{
-		box-shadow: 0 0 3px 1px lighten($mainAccentColor, 20);
+
 	}
 }
 
-.nav__item--section-part>img
-{
-
-max-width: 100%;
-max-height: 6em;
-margin: .5rem;
-
-}
-
-
-.nav__item--section.nav__link
-{
-	border: 0.1rem solid $minorAccentColor;
-}
 
 .nav__link {
-	color: $minorTxtColor;
+	color: $menuTxtColor;
 	padding: 1rem;
-	border-bottom: 0.1rem solid $minorAccentColor;
+	border-bottom: 0.1rem solid $menuBorderColor;
 	cursor: pointer;
 
 	&:hover,&:focus{
-		color: $minorAccentColor;
+		color: $menuTxtColor-Hover;
 	}
 }
 
@@ -267,7 +264,7 @@ margin: .5rem;
 		height: auto;
 		transform: translateX(0);
 		overflow: visible;
-		background-color:inherit;
+		background-color:$menuBgColor;
 	}
 
 	.nav__list,
@@ -280,8 +277,6 @@ margin: .5rem;
 		height: auto;
 		transform: none;
 	}
-
-
 
 	.dropdown-parent {
 		position: relative;
@@ -299,10 +294,11 @@ margin: .5rem;
 flex-direction: column;
 		padding: 1rem;
 
-		box-shadow: 0 0 0.7rem 0.3rem lighten($mainTxtColor, 30);
-		background-color: darken($bodyColor, 5);
+		box-shadow: 0 0 0.7rem 0.3rem $menuShadowColor;
 
-		border-radius: $borderRadius;
+		background-color:$menuBgColor;
+
+		border-radius: $menuBorderRadius;
 
 		width:auto;
 	
@@ -352,30 +348,14 @@ flex-direction: column;
 	.nav__link {
 
 padding: 1rem .3rem;
-border-bottom: 0.4rem solid transparent;
+border-bottom: 0.1rem solid transparent;
 
 &:hover,&:focus
 {
 	
-	border-bottom: 0.4rem solid $minorAccentColor;
-	text-shadow: 0 0 2px ;
-
-
-	&::after {
-
-		opacity: 0;
-		visibility: hidden;
-		user-select: none;
-	}
+	border-bottom: 0.1rem solid $menuBorderColor;
 }
 	}
-
-.nav__link.action{
-	border-bottom: 0.4rem solid $minorAccentColor;
-	-webkit-text-stroke: 2px;
-}
-
-
 
 	.nav__burger.active,
 	.nav__burger,
