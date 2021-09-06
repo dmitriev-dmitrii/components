@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	  <label id="darck-theme-togle">
+    <input
+      aria-label="сменить расцветку сайта"
+      type="checkbox"
+      name="theme"
+      id="darck-theme-checkbox"/>
+  </label>
+</body>
+
+</html>
+
+<style scoped lang="scss">
+
+#darck-theme-checkbox {
+  
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+left: 0;
+top: 0;
+
+z-index: -1;
+
+cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+
+  transition: 0.2s ease;
+  
+  @media (min-width: 991.98px){
+    &:hover
+  {
+    box-shadow: 0 0 .3rem .2rem $minorAccentColor;  
+  }
+    }
+
+}
+
+#darck-theme-togle {
+  $base: 1.3rem;
+
+  position: relative;
+
+  display: block;
+  cursor: pointer;
+
+  height: $base;
+  width: $base * 2;
+
+  border-radius: 2rem;
+  
+  // overflow: hidden;
+  transition: 0.2s ease;
+
+&::before,
+&:after
+{
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.2s ease;
+}
+
+&::before{
+
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 0 1px #777;
+  background-color: $mainTxtColor;
+}
+
+&:after {
+
+    height: $base;
+    width: $base;
+
+    border-radius: 50%;
+    background-color: yellow;
+    box-shadow: 0 0 0 0.05rem $mainTxtColor inset;
+  }
+}
+
+#darck-theme-togle.checked {
+
+    &::before {
+    background-color:#ffff;
+  }
+  
+  &:after {
+    transform: translateX(100%);
+    background-color: $mainAccentColor;
+  }
+}
+</style>
